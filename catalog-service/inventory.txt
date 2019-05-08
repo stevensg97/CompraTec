@@ -1,4 +1,4 @@
-phonee,200,14
+phone,200,14
 laptop,900,47
 HDD,200,40
 earphone,50,100
