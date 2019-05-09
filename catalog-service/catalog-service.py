@@ -7,7 +7,7 @@ while(True):
         items = []
         for line in lines:
             item,price,count = line.split(',')
-            print(item,'\t',price,'\t',count)
+            print(item+"\t"+price+"\t"+count)
             items.append(item)
         print("Which item you want to buy:", items)
         item_choice = input()
@@ -24,8 +24,8 @@ while(True):
     elif choice == 2:
         print("Item\tPrice\tAvailableCount")
         for line in lines:
-                item,price,count = line.split(',')
-                print(item,"\t",price,"\t",count)
+            item,price,count = line.split(',')
+            print(item+"\t"+price+"\t"+count)
     else:
         file.seek(0)
         for line in lines:
