@@ -1,5 +1,6 @@
 file = open("inventory.txt", 'r+')
 lines = file.readlines()
+
 while(True):
     choice = int(input("1.Buy Item \n2.View Items \n3.Exit \n"))
     if choice == 1:
