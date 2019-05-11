@@ -1,29 +1,42 @@
-const graphql = require ('graphql');
+const typeDefs = `
+  type Order {
+    id_order: Int!
+    total: Int!
+    order_date: String!
+    id_user: Int!
+    description: String!
+  }
 
-import StudentType from './student-type.js'
-import Student from '../models/student'
+  type Query {
+    order(id_order: Int!): Order
+    allOrders: [Order]
+  }
 
-const {
-    GraphQLObjectType,
-    GraphQLString,
-    GraphQLSchema
-}=graphql
+  type Mutation {
+    insertOrder(
+      total: Int!
+      order_date: String!
+      id_user: Int!
+      description: String!
+    ) : Order
 
-const RootQuery = new GraphQLObjectType({
-    name: 'RootQueryType',
-    fields: {
-        student:{
-            type: StudentType,
-            args: {id: {type:GraphQLString}},
-            resolve(parent,args) {
-                return Student.findById(args.id)
-            }
-        }
-    }
-})
+    updateOrder(
+      id_order: Int!
+      total: Int!
+      order_date: String!
+      id_user: Int!
+      description: String!
+    ) : Order
 
-export default new GraphQLSchema({
-    query: RootQuery
+    deleteOrder(
+      id_order: Int!
+    ) : Order
+  }
 
-})
+  type Schema {
+    query: Query
+    mutation: Mutation
+  }
+`;
 
+export default typeDefs;
