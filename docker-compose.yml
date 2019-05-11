@@ -37,15 +37,14 @@ services:
           cpus: "0.1"
           memory: 50M
       restart_policy:
-        condition: on-failurenode_modules
-npm-debug.log
+        condition: on-failure
     ports:
       - "4000:2000"
     networks:
       - webnet
   
   orders:
-    image: nbaltodano0412/catalogservice
+    image: nbaltodano0412/ordersservice
     deploy:
       replicas: 2
       resources:

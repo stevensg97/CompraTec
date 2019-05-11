@@ -28,8 +28,3 @@ def catalogServiceSearch(Name):
     
 catalogServiceSearch("Mesa")
     
-#if result.acknowledged:
-#    print('Element Added. The element Id is' + str(result.inserted_id))
-
-#search = elements.find_one()
-#print(search)
