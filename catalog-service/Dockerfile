@@ -10,8 +10,9 @@ COPY . /catalog-service
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-# Make port 80 available to the world outside this container
-EXPOSE 80:27017
+# Make port 2000 available to the world outside this container
+EXPOSE 2000
+EXPOSE 27017
 
 # Define environment variable
 ENV NAME Catalog
