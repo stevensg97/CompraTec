@@ -54,7 +54,7 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "4000:2000"
+      - "4000:8000"
     networks:
       - webnet
 networks:
