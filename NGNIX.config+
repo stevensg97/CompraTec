@@ -2,10 +2,10 @@ http {
  server {
    listen 80;
    location /catalog-service{
-     proxy_pass http://springbootservice1:8080/service1/;
+     proxy_pass http://catalogservice:2000/pythonservice/;
    }
    location /orders-service {
-     proxy_pass http://springbootservice2:8080/service2/;
+     proxy_pass http://ordersservice:3000/nodeservice/;
    }
  }
 }

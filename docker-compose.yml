@@ -1,33 +1,33 @@
 version: "3"
 services:
-  # nginx-lb:
-  #   build: ../nginx-loadbalancer
-  #   #image: nginx-lb
-  #   ports:
-  #     - "80:80"
-  #   links:
-  #       - springbootservice1
-  #       - springbootservice2
-  #   depends_on:
-  #     - springbootservice1
-  #     - springbootservice2
-  #   springbootservice1:
-  #     image: springbootservice1
-  #     ports:
-  #       - "8080"
-  #    springbootservice2:
-  #       image: springbootservice2
-  #       ports:
-  #         - "8080"
-  # visualizer:
-  #     image: dockersamples/visualizer:stable
-  #     ports:
-  #       - "3005:8080"
-  #     volumes:
-  #       - "/var/run/docker.sock:/var/run/docker.sock"
-  #     deploy:
-  #       placement:
-  #         constraints: [node.role == manager]  
+  nginx-lb:
+    build: ../nginx-loadbalancer
+    #image: nginx-lb
+    ports:
+      - "80:80"
+    links:
+        - catalogservice
+        - ordersservice
+    depends_on:
+      - catalogservice
+      - ordersservice
+    catalogservice:
+      image: catalogservice
+      ports:
+        - "2000"
+     ordersservice:
+        image: ordersservice
+        ports:
+          - "3000"
+  visualizer:
+      image: dockersamples/visualizer:stable
+      ports:
+        - "3005:8080"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock"
+      deploy:
+        placement:
+          constraints: [node.role == manager]  
   catalog:
     image: nbaltodano0412/catalogservice
     deploy:
@@ -37,7 +37,8 @@ services:
           cpus: "0.1"
           memory: 50M
       restart_policy:
-        condition: on-failure
+        condition: on-failurenode_modules
+npm-debug.log
     ports:
       - "4000:2000"
     networks:
@@ -54,7 +55,7 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "4000:8000"
+      - "3000:8000"
     networks:
       - webnet
 networks:
