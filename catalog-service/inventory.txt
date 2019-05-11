@@ -1,0 +1,5 @@
+phone,200,13
+laptop,900,47
+HDD,200,40
+earphone,50,99
+
