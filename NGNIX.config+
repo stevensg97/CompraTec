@@ -1,0 +1,12 @@
+http {
+ server {
+   listen 80;
+   location /catalog-service{
+     proxy_pass http://springbootservice1:8080/service1/;
+   }
+   location /orders-service {
+     proxy_pass http://springbootservice2:8080/service2/;
+   }
+ }
+}
+events { worker_connections 1024; }
