@@ -19,10 +19,15 @@ def catalogServiceSearch(Name):
     search = elements.find_one({
         'Name' : Name
     })
-    print("The element is:")
-    print(search)
+    if (str(search) != "None"):
+        print("The element is:")
+        print(search)
+    else:
+        print("Element not found!")
     return 0
+    
 catalogServiceSearch("Mesa")
+    
 #if result.acknowledged:
 #    print('Element Added. The element Id is' + str(result.inserted_id))
 
